@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: vegadocs
+    env: docker
+    dockerfilePath: docker/Dockerfile
+    plan: standard
+    region: oregon
+    healthCheckPath: /api/ping
+    envVars:
+      - key: SERVER_PORT
+        value: 3001
+      - key: STORAGE_DIR
+        value: /app/server/storage
+      - key: DISABLE_TELEMETRY
+        value: "true"

@@ -1,0 +1,19 @@
+services:
+  vegadocs:
+    container_name: vegadocs
+    image: mintplexlabs/anything-llm:latest
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      STORAGE_DIR: /app/server/storage
+      SERVER_PORT: 3001
+      DISABLE_TELEMETRY: "true"
+    volumes:
+      - vegadocs_data:/app/server/storage
+    cap_add:
+      - SYS_ADMIN
+
+volumes:
+  vegadocs_data:
+    driver: local

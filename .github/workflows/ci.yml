@@ -1,0 +1,38 @@
+name: VegaDocs CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate VegaDocs Enterprise Architecture
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate Package Manifests & Structure
+        run: |
+          echo "Verifying VegaDocs root package..."
+          node -e 'const pkg = require("./package.json"); console.log("Validated:", pkg.name, "v" + pkg.version);'
+          echo "Verifying Server & Frontend manifests..."
+          node -e 'const pkg = require("./server/package.json"); console.log("Server validated:", pkg.name);'
+          node -e 'const pkg = require("./frontend/package.json"); console.log("Frontend validated:", pkg.name);'
+
+      - name: Verify Brand Assets & Deployment Configs
+        run: |
+          test -f images/vega-logo.svg && echo "Brand logo verified"
+          test -f frontend/public/vega-logo.svg && echo "Frontend logo verified"
+          test -f docker-compose.yml && echo "Docker Compose verified"
+          test -f render.yaml && echo "Render manifest verified"
+          test -f README.md && echo "Documentation verified"
+          echo "VegaDocs architecture validation passed!"

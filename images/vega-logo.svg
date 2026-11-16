@@ -1,0 +1,28 @@
+<svg width="220" height="42" viewBox="0 0 220 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vegaGradImg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="50%" stop-color="#00B0FF" />
+      <stop offset="100%" stop-color="#1565C0" />
+    </linearGradient>
+    <linearGradient id="sapphireGlowImg" x1="6" y1="6" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E1F5FE" />
+      <stop offset="100%" stop-color="#80D8FF" />
+    </linearGradient>
+    <filter id="vegaGlowImg" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g transform="translate(3, 3)">
+    <path d="M18 0L23.8 12.2L36 18L23.8 23.8L18 36L12.2 23.8L0 18L12.2 12.2Z" fill="url(#vegaGradImg)" />
+    <path d="M18 5L21.8 14.2L31 18L21.8 21.8L18 31L14.2 21.8L5 18L14.2 14.2Z" fill="url(#sapphireGlowImg)" filter="url(#vegaGlowImg)" opacity="0.95" />
+    <circle cx="18" cy="18" r="4.2" fill="#FFFFFF" />
+    <circle cx="18" cy="18" r="2.2" fill="#0091EA" />
+  </g>
+
+  <text x="48" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="2" fill="#0F172A">VEGA</text>
+  <rect x="126" y="11" width="56" height="20" rx="4" fill="#00B0FF" />
+  <text x="133" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" letter-spacing="1">DOCS</text>
+</svg>
