@@ -18,6 +18,7 @@
     "node": ">=18"
   },
   "scripts": {
+    "build": "node build.js",
     "test": "jest",
     "lint": "cd server && yarn lint && cd ../frontend && yarn lint && cd ../collector && yarn lint",
     "lint:ci": "cd server && yarn lint:check && cd ../frontend && yarn lint:check && cd ../collector && yarn lint:check",
